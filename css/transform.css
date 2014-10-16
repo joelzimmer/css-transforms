@@ -1,0 +1,48 @@
+	.rotate.span3 {
+		background: #4DB58E;
+		z-index: 1;
+		box-shadow: 0 0 2px #ddd;
+	}
+
+	.span3 {
+		outline: 1px dashed #ddd;
+		transform: rotate(0deg);
+		transform-origin: 0 0;
+		text-align: center;
+	}
+
+	.span3 .span3 {
+		display: none;
+		margin-left: 0;
+		transform: none;
+	}
+
+	.rotate .span3 {
+		display: block;
+		position: absolute;
+		top: 0;
+		box-shadow: 0 none;
+	}
+
+	.container {
+		margin-top: 150px;
+	}
+
+	.form-horizontal .control-label {
+		padding-top: 1px;
+	}
+
+	.badge {
+		width: 26px;
+		text-align: center;
+	}
+
+	.origin {
+		top: -3px;
+		left: -3px;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: #222;
+		position: absolute;
+	}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>CSS Transforms</title>
+		<link rel="stylesheet" href="/css/bootstrap.css" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/transform.css" />
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<div class="container pad-tb-large">
+				<div class="row">
+					<div class="span3 pad-tb-large rotate">
+						<div class="span3 pad-tb-large">
+							<div class="origin"></div>
+						</div>
+					</div>
+					<div class="span3 pad-tb-large">
+					</div>
+					<div class="span3 pad-tb-large">
+					</div>
+					<div class="span3 pad-tb-large">
+					</div>
+				</div>
+				<div class="row pad-tb-large">
+					<div class="pull-right">
+						<form class="form-horizontal">
+							<div class="control-group">
+								<label class="control-label">rotate: </label>
+								<div class="controls">
+									<input name="rotation" data-css-name="transform" data-css-value="rotate([value]deg)" type="range" min="-360" max="360" step="1" value="0" list="angles" />
+									<a class="badge">0</a>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">transform-origin (x): </label>
+								<div class="controls">
+									<input name="origin-x" data-index="0" type="range" min="0" max="100" step="1" value="0" list="percents" />
+									<a class="badge">0</a>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">transform-origin (y): </label>
+								<div class="controls">
+									<input name="origin-y" data-index="1" type="range" min="0" max="100" step="1" list="percents" value="0" />
+									<a class="badge">0</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<datalist id="percents">
+				<option value="0">
+				<option value="25">
+				<option value="50">
+				<option value="75">
+				<option value="100">
+			</datalist>
+
+			<datalist id="angles">
+				<option value="-360">
+				<option value="-315">
+				<option value="-270">
+				<option value="-225">
+				<option value="-180">
+				<option value="-135">
+				<option value="-90">
+				<option value="-45">
+				<option value="0">
+				<option value="45">
+				<option value="90">
+				<option value="135">
+				<option value="180">
+				<option value="225">
+				<option value="270">
+				<option value="315">
+				<option value="360">
+			</datalist>
+
+		</div>
+		<script src="/javascript/jquery.js"></script>
+		<script>
+			(function ($) {
+				$('input[name=rotation]').on('input', function (e) {
+					$('.rotate.span3').css({'transform': 'rotate(' + $(this).val() + 'deg)'});
+					$('.rotate.span3 .span3').css({'transform': 'rotate(' + -1 * $(this).val() + 'deg)'});
+				});
+
+				$('input[name=origin-x],input[name=origin-y]').on('input', function (e) {
+					var origin = $('.rotate.span3').css('transform-origin').split(' ');
+					var index = $(this).data('index');
+					var val = $(this).val();
+					origin[index] = val + '%';
+					var origin = origin.join(' ');
+					$('.span3').css({'transform-origin': origin});
+
+					var pos = index === 0 ? 'left' : 'top';
+					$('.origin').css(pos, '-webkit-calc(' + val + '% - 3px)');
+				});
+
+				$('input').on('input', function (e) {
+					$(this).next('.badge').text($(this).val());
+				});
+
+			})(jQuery);
+		</script>
+	</body>
+</html>

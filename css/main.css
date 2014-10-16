@@ -1,0 +1,11 @@
+/* All of this is from the sticky footer example */
+html,
+body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+/* OOCSS Type classes */
+.pad-tb-large {
+	padding: 40px 0;
+}
