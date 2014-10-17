@@ -1,11 +1,11 @@
 	.rotate.span3 {
 		background: #4DB58E;
 		z-index: 1;
-		box-shadow: 0 0 2px #ddd;
+		outline: 0 none;
 	}
 
 	.span3 {
-		outline: 1px dashed #ddd;
+		outline: 2px dashed #ccc;
 		transform: rotate(0deg);
 		transform-origin: 0 0;
 		text-align: center;
