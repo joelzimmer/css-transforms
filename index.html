@@ -101,7 +101,7 @@
 					$('.span3').css({'transform-origin': origin});
 
 					var pos = index === 0 ? 'left' : 'top';
-					$('.origin').css(pos, '-webkit-calc(' + val + '% - 3px)');
+					$('.origin').css(pos, 'calc(' + val + '% - 3px)');
 				});
 
 				$('input').on('input', function (e) {
